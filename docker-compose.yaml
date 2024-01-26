@@ -12,7 +12,6 @@ services:
       - "8080:5229"
     networks:
       - network1
-    platform: linux/amd64
 
   document-generate-front-end:
     image: document-generate-front-end
