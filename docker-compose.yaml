@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web-api:
+    image: document-generate-api
+    restart: unless-stopped
+    build:
+      context: ./DocumentGenerateAPIService/
+      dockerfile: Dockerfile
+    volumes:
+      - ./DocumentGenerateAPIService/hangfire.db:/app/hangfire.db
+    ports:
+      - "8080:5229"
+    networks:
+      - network1
+    platform: linux/amd64
+
+  document-generate-front-end:
+    image: document-generate-front-end
+    restart: unless-stopped
+    build:
+      context: ./frontend-client/
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - network1
+    depends_on:
+      - web-api
+networks:
+  network1:
