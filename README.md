@@ -8,6 +8,7 @@ Also, when the application starts, a recurring job is created with a cron statem
 
 Created Dockerfiles for .NET application and for Vue client. And docker-compose.yaml for creating docker containers.
 
+Has some problems with docker container on Mac ARM processors: https://github.com/puppeteer/puppeteer/issues/9763
 
 
 
